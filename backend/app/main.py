@@ -17,15 +17,33 @@ class Colony:
         self.workers[self.name_to_id[name]].status()
         
     def start_worker(self, name: str):
+        
+        # check worker doens't already exist
         if name in self.name_to_id:
             raise TypeError("worker with this name already exists")
+        
+        # get and add worker id
         worker_id = str(uuid.uuid4())
         self.name_to_id[name] = worker_id
+        
+        # create new worker
+        new_worker = Worker(name, worker_id)
         
     
 
 class Worker:
+    
+    def __init__(self, name: str, worker_id: str, prompt: str = None):
+        
+        self.name = name
+        self.worker_id = worker_id
+        self.prompt = prompt
 
+
+    
+    
+    
+    
     
     
 
